@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "modbusdashboard"
+description = "Dashboard para uma planta industrial usando KivyMD."
+version = "0.0.1"
+readme = "README.md"
+dependencies = [
+    "pymodbustcp>=0.3.0",
+    "pymodbus",
+    "kivymd",
+    "sqlalchemy",
+]
+authors = [
+  {name = "Felipe Vellasco", email = "vellasco.felipe@estudante.ufjf.br"},
+]
+
+[project.scripts]
+gui = "src.main:main"
+
+[dependency-groups]
+dev = [
+    "ruff",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
